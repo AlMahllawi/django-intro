@@ -22,3 +22,7 @@ pip install django
 ```bash
 python manage.py runserver
 ```
+
+## Preview
+![Preview](https://github.com/AlMahllawi/django-intro/blob/7b9a270f05a4cec92b413e09b4d43f0b0246215f/preview.gif)
+
