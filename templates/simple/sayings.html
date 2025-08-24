@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head %}
 <style>
@@ -18,14 +19,14 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
-    .buttons {
+    .sayings {
         display: flex;
         justify-content: center;
         gap: 25px;
         flex-wrap: wrap;
     }
 
-    .btn {
+    .saying {
         display: inline-block;
         padding: 16px 35px;
         background: rgba(255, 255, 255, 0.15);
@@ -40,13 +41,19 @@
         min-width: 180px;
     }
 
-    .btn:hover {
+    .saying:hover {
         background: rgba(255, 255, 255, 0.25);
         transform: translateY(-3px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .btn:active {
+    .saying.true:active {
+        background-color: yellowgreen;
+        transform: translateY(1px);
+    }
+
+    .saying.false:active {
+        background-color: rosybrown;
         transform: translateY(1px);
     }
 
@@ -66,16 +73,18 @@
         }
     }
 </style>
+
+<link rel="stylesheet" href="{% static 'home-link.css' %}">
 {% endblock %}
 
 {% block body %}
+{% include 'home-link.html' %}
 <div class="container">
-    <h1>Django Introduction</h1>
-    <div class="buttons">
-        <a href="/clock" class="btn">Wall Clock</a>
-        <a href="/unit-convert" class="btn">Unit Converter</a>
-        <a href="/hangman" class="btn">Hangman Game</a>
-        <a href="/sayings" class="btn">Sayings</a>
+    <h1>Sayings (hold to check if true)</h1>
+    <div class="sayings">
+        {% for saying in sayings %}
+        <div class="saying {% if saying.valid %}true{% else %}false{% endif %}">{{ saying.saying }}</div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
