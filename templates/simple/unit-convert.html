@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head %}
     <style>
@@ -91,23 +92,6 @@
             text-align: center;
         }
 
-        #homeLink {
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: black;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: scale 0.3s;
-        }
-
-        #homeLink:hover {
-            scale: 125%;
-        }
-
         @media (max-width: 600px) {
             .input-group {
                 flex-direction: column;
@@ -120,9 +104,13 @@
             }
         }
     </style>
+
+    <link rel="stylesheet" href="{% static 'home-link.css' %}">
 {% endblock %}
 
 {% block body %}
+    {% include 'home-link.html' %}
+    
     <div class="container">
         <h1>Unit Converter</h1>
 
@@ -168,8 +156,6 @@
             <div class="formula">1 mile = 1609.34 km | 1 km = 0.621371 miles</div>
         </div>
     </div>
-
-    <a href="../" id="homeLink">← Return to Homepage</a>
 
     <script>
         function convertWeight() {

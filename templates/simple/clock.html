@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head %}
     <style>
@@ -10,7 +11,7 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .clock {
             position: relative;
             width: 300px;
@@ -118,27 +119,14 @@
             width: 8px;
             background: #e74c3c;
         }
-
-        #homeLink {
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: black;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: scale 0.3s;
-        }
-
-        #homeLink:hover {
-            scale: 125%;
-        }
     </style>
+
+    <link rel="stylesheet" href="{% static 'home-link.css' %}">
 {% endblock %}
 
 {% block body %}
+    {% include 'home-link.html' %}
+
     <div class="container">
         <div class="clock">
             <div class="clock-face">
@@ -150,8 +138,6 @@
         </div>
         <div class="digital-clock">00:00:00</div>
         <div class="date-display">Monday, January 1, 2023</div>
-
-        <a href="../" id="homeLink">← Return to Homepage</a>
     </div>
 
     <script>

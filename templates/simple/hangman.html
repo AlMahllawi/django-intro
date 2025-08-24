@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head %}
     <style>
@@ -184,9 +185,13 @@
             }
         }
     </style>
+
+    <link rel="stylesheet" href="{% static 'home-link.css' %}">
 {% endblock %}
 
 {% block body %}
+    {% include 'home-link.html' %}
+
     <div class="container">
         <h1>Hangman Game</h1>
 
@@ -212,7 +217,6 @@
 
         <div class="keyboard" id="keyboard"></div>
 
-        <a href="../" class="btn">← Return to Homepage</a>
         <button class="btn" id="reset-button">New Game</button>
     </div>
 
