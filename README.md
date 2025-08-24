@@ -18,6 +18,11 @@ Using [pip](https://pip.pypa.io/en/stable/):
 pip install django
 ```
 
+## Collect [static files](https://docs.djangoproject.com/en/5.1/ref/contrib/staticfiles/)
+```bash
+python manage.py collectstatic
+```
+
 ## Run the [development server](https://docs.djangoproject.com/en/5.2/ref/django-admin/#runserver)
 ```bash
 python manage.py runserver
