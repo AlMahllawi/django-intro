@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Wall Clock</title>
+{% block head %}
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, black, grey);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         .container {
             text-align: center;
             padding: 20px;
@@ -29,13 +10,7 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-
-        h1 {
-            color: white;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
+        
         .clock {
             position: relative;
             width: 300px;
@@ -161,11 +136,10 @@
             scale: 125%;
         }
     </style>
-</head>
+{% endblock %}
 
-<body>
+{% block body %}
     <div class="container">
-        <h1>Simple Wall Clock</h1>
         <div class="clock">
             <div class="clock-face">
                 <div class="hand hour-hand"></div>
@@ -218,6 +192,4 @@
         setDate();
         setInterval(setDate, 1000);
     </script>
-</body>
-
-</html>
+{% endblock %}

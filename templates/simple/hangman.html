@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman Game</title>
+{% block head %}
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, black, grey);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
         .container {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
@@ -204,9 +184,9 @@
             }
         }
     </style>
-</head>
+{% endblock %}
 
-<body>
+{% block body %}
     <div class="container">
         <h1>Hangman Game</h1>
 
@@ -384,6 +364,4 @@
             initGame();
         });
     </script>
-</body>
-
-</html>
+{% endblock %}
