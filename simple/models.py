@@ -1,3 +1,9 @@
 from django.db import models
 
-# Create your models here.
+class HangmanWord(models.Model):
+    word = models.CharField()
+    category = models.CharField()
+
+class Saying(models.Model):
+    content = models.TextField()
+    valid = models.BooleanField()

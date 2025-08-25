@@ -23,6 +23,12 @@ pip install django
 python manage.py collectstatic
 ```
 
+## [Migrate](https://docs.djangoproject.com/en/5.2/ref/django-admin/#migrate) database models
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
 ## Run the [development server](https://docs.djangoproject.com/en/5.2/ref/django-admin/#runserver)
 ```bash
 python manage.py runserver
