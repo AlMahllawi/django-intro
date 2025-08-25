@@ -12,28 +12,28 @@
 <div class="container">
     <h1>Hangman Game</h1>
 
-    <div class="game-info">
+    <div id="game-info">
         <div>Mistakes: <span id="mistakes">0</span>/6</div>
         <div>Score: <span id="score">0</span></div>
     </div>
 
-    <div class="category" id="category">Category: Fruits</div>
+    <div id="category">Category: {{ category|default:'Fruits' }}</div>
 
-    <div class="hangman-figure">
-        <div class="part head"></div>
-        <div class="part body"></div>
-        <div class="part left-arm"></div>
-        <div class="part right-arm"></div>
-        <div class="part left-leg"></div>
-        <div class="part right-leg"></div>
-    </div>
+    <figure id="hangman">
+        <div id="head"></div>
+        <div id="body"></div>
+        <div id="left-arm"></div>
+        <div id="right-arm"></div>
+        <div id="left-leg"></div>
+        <div id="right-leg"></div>
+    </figure>
 
-    <div class="word-display" id="word-display"></div>
+    <div id="word" data-value="{{ word|default:'apple' }}"></div>
 
-    <div class="message" id="message"></div>
+    <div id="message"></div>
 
-    <div class="keyboard" id="keyboard"></div>
+    <div id="keyboard"></div>
 
-    <button class="btn" id="reset-button">New Game</button>
+    <button id="reset-button" onclick="window.location.reload()">New Game</button>
 </div>
 {% endblock %}

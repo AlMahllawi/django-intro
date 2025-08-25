@@ -9,11 +9,15 @@
 {% block body %}
 {% include 'home-link.html' %}
 <div class="container">
+    {% if sayings|length > 0 %}
     <h1>Sayings (hold to check if true)</h1>
     <div class="sayings">
         {% for saying in sayings %}
-        <div class="saying {% if saying.valid %}true{% else %}false{% endif %}">{{ saying.saying }}</div>
+        <div class="saying {% if saying.valid %}true{% else %}false{% endif %}">{{ saying.content }}</div>
         {% endfor %}
     </div>
+    {% else %}
+    <h1 style="color: tomato;">No sayings were found.</h1>
+    {% endif %}
 </div>
 {% endblock %}
