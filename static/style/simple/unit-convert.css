@@ -1,0 +1,100 @@
+.container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+}
+
+.converter {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.converter h2 {
+    color: grey;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+input,
+select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+select {
+    width: 100px;
+}
+
+button {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: black;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #2c3e50;
+    min-height: 60px;
+}
+
+.formula {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    input {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

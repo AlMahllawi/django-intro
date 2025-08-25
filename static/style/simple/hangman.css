@@ -1,0 +1,363 @@
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.word-display {
+    font-size: 2.5rem;
+    letter-spacing: 10px;
+    margin: 30px 0;
+    color: #333;
+    font-weight: bold;
+    min-height: 60px;
+}
+
+.hangman-figure {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.part {
+    display: none;
+    background-color: #333;
+}
+
+.head {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 80px;
+}
+
+.body {
+    width: 10px;
+    height: 70px;
+    position: absolute;
+    top: 40px;
+    right: 95px;
+}
+
+.left-arm {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 60px;
+    right: 95px;
+    transform: rotate(30deg);
+}
+
+.right-arm {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 60px;
+    right: 65px;
+    transform: rotate(-30deg);
+}
+
+.left-leg {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 110px;
+    right: 95px;
+    transform: rotate(30deg);
+}
+
+.right-leg {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 110px;
+    right: 65px;
+    transform: rotate(-30deg);
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.letter {
+    width: 40px;
+    height: 40px;
+    background-color: #f1f1f1;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #333;
+}
+
+.letter:hover {
+    background-color: #ddd;
+}
+
+.letter.correct {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+    cursor: default;
+}
+
+.letter.incorrect {
+    background-color: #f44336;
+    color: white;
+    border-color: #f44336;
+    cursor: default;
+}
+
+.message {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    min-height: 40px;
+    color: #333;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: grey;
+    text-decoration: none;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: black;
+}
+
+.category {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+@media (max-width: 500px) {
+    .letter {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .word-display {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+    }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.word-display {
+    font-size: 2.5rem;
+    letter-spacing: 10px;
+    margin: 30px 0;
+    color: #333;
+    font-weight: bold;
+    min-height: 60px;
+}
+
+.hangman-figure {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.part {
+    display: none;
+    background-color: #333;
+}
+
+.head {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 80px;
+}
+
+.body {
+    width: 10px;
+    height: 70px;
+    position: absolute;
+    top: 40px;
+    right: 95px;
+}
+
+.left-arm {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 60px;
+    right: 95px;
+    transform: rotate(30deg);
+}
+
+.right-arm {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 60px;
+    right: 65px;
+    transform: rotate(-30deg);
+}
+
+.left-leg {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 110px;
+    right: 95px;
+    transform: rotate(30deg);
+}
+
+.right-leg {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 110px;
+    right: 65px;
+    transform: rotate(-30deg);
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.letter {
+    width: 40px;
+    height: 40px;
+    background-color: #f1f1f1;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #333;
+}
+
+.letter:hover {
+    background-color: #ddd;
+}
+
+.letter.correct {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+    cursor: default;
+}
+
+.letter.incorrect {
+    background-color: #f44336;
+    color: white;
+    border-color: #f44336;
+    cursor: default;
+}
+
+.message {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    min-height: 40px;
+    color: #333;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: grey;
+    text-decoration: none;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: black;
+}
+
+.category {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+@media (max-width: 500px) {
+    .letter {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .word-display {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+    }
+}

@@ -2,180 +2,23 @@
 {% load static %}
 
 {% block head %}
-    <style>
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .clock {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-            border: 20px solid #2c3e50;
-            border-radius: 50%;
-            background: #ecf0f1;
-            box-shadow:
-                inset 0 0 20px rgba(0, 0, 0, 0.2),
-                0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .clock-face {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hand {
-            width: 50%;
-            height: 6px;
-            background: #2c3e50;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            border-radius: 10px;
-            transform-origin: 100%;
-            transform: rotate(90deg);
-            transition: all 0.05s;
-            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .hour-hand {
-            height: 8px;
-            width: 35%;
-            left: 15%;
-            background: #e74c3c;
-            z-index: 10;
-        }
-
-        .min-hand {
-            height: 6px;
-            width: 45%;
-            left: 5%;
-            background: #3498db;
-            z-index: 20;
-        }
-
-        .second-hand {
-            height: 3px;
-            background: #16a085;
-            z-index: 30;
-        }
-
-        .center-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 15px;
-            height: 15px;
-            background: #2c3e50;
-            border-radius: 50%;
-            z-index: 40;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .digital-clock {
-            margin-top: 25px;
-            font-size: 2rem;
-            color: white;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            letter-spacing: 2px;
-        }
-
-        .date-display {
-            margin-top: 10px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.2rem;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Clock markers */
-        .marker {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .marker div {
-            position: absolute;
-            width: 5px;
-            height: 15px;
-            background: #2c3e50;
-            left: calc(50% - 2.5px);
-            transform-origin: bottom center;
-        }
-
-        .marker div.major {
-            height: 20px;
-            width: 8px;
-            background: #e74c3c;
-        }
-    </style>
-
-    <link rel="stylesheet" href="{% static 'home-link.css' %}">
+<link rel="stylesheet" href="{% static 'style/home-link.css' %}">
+<link rel="stylesheet" href="{% static 'style/simple/clock.css' %}">
+<script defer src="{% static 'script/simple/clock.js' %}"></script>
 {% endblock %}
 
 {% block body %}
-    {% include 'home-link.html' %}
-
-    <div class="container">
-        <div class="clock">
-            <div class="clock-face">
-                <div class="hand hour-hand"></div>
-                <div class="hand min-hand"></div>
-                <div class="hand second-hand"></div>
-                <div class="center-circle"></div>
-            </div>
+{% include 'home-link.html' %}
+<div class="container">
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+            <div class="center-circle"></div>
         </div>
-        <div class="digital-clock">00:00:00</div>
-        <div class="date-display">Monday, January 1, 2023</div>
     </div>
-
-    <script>
-        const secondHand = document.querySelector('.second-hand');
-        const minsHand = document.querySelector('.min-hand');
-        const hourHand = document.querySelector('.hour-hand');
-        const digitalClock = document.querySelector('.digital-clock');
-        const dateDisplay = document.querySelector('.date-display');
-
-        function setDate() {
-            const now = new Date();
-
-            // Analog clock
-            const seconds = now.getSeconds();
-            const secondsDegrees = ((seconds / 60) * 360) + 90;
-            secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
-            const mins = now.getMinutes();
-            const minsDegrees = ((mins / 60) * 360) + ((seconds / 60) * 6) + 90;
-            minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-
-            const hour = now.getHours();
-            const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
-            hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-
-            // Digital clock
-            const hoursFormatted = String(hour).padStart(2, '0');
-            const minsFormatted = String(mins).padStart(2, '0');
-            const secsFormatted = String(seconds).padStart(2, '0');
-            digitalClock.textContent = `${hoursFormatted}:${minsFormatted}:${secsFormatted}`;
-
-            // Date display
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            dateDisplay.textContent = now.toLocaleDateString('en-US', options);
-        }
-
-        // Update the clock immediately and then every second
-        setDate();
-        setInterval(setDate, 1000);
-    </script>
+    <div class="digital-clock">00:00:00</div>
+    <div class="date-display">Monday, January 1, 2023</div>
+</div>
 {% endblock %}

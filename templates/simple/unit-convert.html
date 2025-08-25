@@ -2,229 +2,56 @@
 {% load static %}
 
 {% block head %}
-    <style>
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 600px;
-            padding: 30px;
-            margin-top: 30px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            font-size: 2.2rem;
-        }
-
-        .converter {
-            margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f8f9fa;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .converter h2 {
-            color: grey;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .input-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        input,
-        select {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        input {
-            flex: 1;
-            margin-right: 10px;
-        }
-
-        select {
-            width: 100px;
-        }
-
-        button {
-            background-color: grey;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: black;
-        }
-
-        .result {
-            margin-top: 15px;
-            padding: 15px;
-            background-color: lightgrey;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 500;
-            color: #2c3e50;
-            min-height: 60px;
-        }
-
-        .formula {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #7f8c8d;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .input-group {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            input {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-        }
-    </style>
-
-    <link rel="stylesheet" href="{% static 'home-link.css' %}">
+<link rel="stylesheet" href="{% static 'style/home-link.css' %}">
+<link rel="stylesheet" href="{% static 'style/simple/unit-convert.css' %}">
+<script defer src="{% static 'script/simple/unit-convert.js' %}"></script>
 {% endblock %}
 
 {% block body %}
-    {% include 'home-link.html' %}
-    
-    <div class="container">
-        <h1>Unit Converter</h1>
+{% include 'home-link.html' %}
+<div class="container">
+    <h1>Unit Converter</h1>
 
-        <div class="converter">
-            <h2>Weight Converter</h2>
-            <div class="input-group">
-                <input type="number" id="weightInput" placeholder="Enter value" step="any">
-                <select id="weightUnit">
-                    <option value="kg">kg</option>
-                    <option value="lb">pounds</option>
-                </select>
-            </div>
-            <button onclick="convertWeight()">Convert</button>
-            <div class="result" id="weightResult"></div>
-            <div class="formula">1 kg = 2.20462 pounds | 1 pound = 0.453592 kg</div>
+    <div class="converter">
+        <h2>Weight Converter</h2>
+        <div class="input-group">
+            <input type="number" id="weightInput" placeholder="Enter value" step="any">
+            <select id="weightUnit">
+                <option value="kg">kg</option>
+                <option value="lb">pounds</option>
+            </select>
         </div>
-
-        <div class="converter">
-            <h2>Temperature Converter</h2>
-            <div class="input-group">
-                <input type="number" id="tempInput" placeholder="Enter value" step="any">
-                <select id="tempUnit">
-                    <option value="c">°C</option>
-                    <option value="f">°F</option>
-                </select>
-            </div>
-            <button onclick="convertTemperature()">Convert</button>
-            <div class="result" id="tempResult"></div>
-            <div class="formula">°F = (°C × 9/5) + 32 | °C = (°F - 32) × 5/9</div>
-        </div>
-
-        <div class="converter">
-            <h2>Distance Converter</h2>
-            <div class="input-group">
-                <input type="number" id="distanceInput" placeholder="Enter value" step="any">
-                <select id="distanceUnit">
-                    <option value="m">km</option>
-                    <option value="mi">miles</option>
-                </select>
-            </div>
-            <button onclick="convertDistance()">Convert</button>
-            <div class="result" id="distanceResult"></div>
-            <div class="formula">1 mile = 1609.34 km | 1 km = 0.621371 miles</div>
-        </div>
+        <button onclick="convertWeight()">Convert</button>
+        <div class="result" id="weightResult"></div>
+        <div class="formula">1 kg = 2.20462 pounds | 1 pound = 0.453592 kg</div>
     </div>
 
-    <script>
-        function convertWeight() {
-            const input = parseFloat(document.getElementById('weightInput').value);
-            const unit = document.getElementById('weightUnit').value;
-            let result;
+    <div class="converter">
+        <h2>Temperature Converter</h2>
+        <div class="input-group">
+            <input type="number" id="tempInput" placeholder="Enter value" step="any">
+            <select id="tempUnit">
+                <option value="c">°C</option>
+                <option value="f">°F</option>
+            </select>
+        </div>
+        <button onclick="convertTemperature()">Convert</button>
+        <div class="result" id="tempResult"></div>
+        <div class="formula">°F = (°C × 9/5) + 32 | °C = (°F - 32) × 5/9</div>
+    </div>
 
-            if (isNaN(input)) {
-                document.getElementById('weightResult').textContent = "Please enter a valid number";
-                return;
-            }
-
-            if (unit === 'kg') {
-                result = input * 2.20462;
-                document.getElementById('weightResult').textContent = `${input} kg = ${result.toFixed(2)} pounds`;
-            } else {
-                result = input * 0.453592;
-                document.getElementById('weightResult').textContent = `${input} pounds = ${result.toFixed(2)} kg`;
-            }
-        }
-
-        function convertTemperature() {
-            const input = parseFloat(document.getElementById('tempInput').value);
-            const unit = document.getElementById('tempUnit').value;
-            let result;
-
-            if (isNaN(input)) {
-                document.getElementById('tempResult').textContent = "Please enter a valid number";
-                return;
-            }
-
-            if (unit === 'c') {
-                result = (input * 9 / 5) + 32;
-                document.getElementById('tempResult').textContent = `${input}°C = ${result.toFixed(2)}°F`;
-            } else {
-                result = (input - 32) * 5 / 9;
-                document.getElementById('tempResult').textContent = `${input}°F = ${result.toFixed(2)}°C`;
-            }
-        }
-
-        function convertDistance() {
-            const input = parseFloat(document.getElementById('distanceInput').value);
-            const unit = document.getElementById('distanceUnit').value;
-            let result;
-
-            if (isNaN(input)) {
-                document.getElementById('distanceResult').textContent = "Please enter a valid number";
-                return;
-            }
-
-            if (unit === 'm') {
-                result = input * 0.621371;
-                document.getElementById('distanceResult').textContent = `${input} km = ${result.toFixed(6)} miles`;
-            } else {
-                result = input * 1.60934;
-                document.getElementById('distanceResult').textContent = `${input} miles = ${result.toFixed(2)} km`;
-            }
-        }
-
-        // Allow pressing Enter key to convert
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('keypress', function (e) {
-                if (e.key === 'Enter') {
-                    const converterId = this.id.replace('Input', '');
-                    if (converterId === 'weight') convertWeight();
-                    if (converterId === 'temp') convertTemperature();
-                    if (converterId === 'distance') convertDistance();
-                }
-            });
-        });
-    </script>
+    <div class="converter">
+        <h2>Distance Converter</h2>
+        <div class="input-group">
+            <input type="number" id="distanceInput" placeholder="Enter value" step="any">
+            <select id="distanceUnit">
+                <option value="m">km</option>
+                <option value="mi">miles</option>
+            </select>
+        </div>
+        <button onclick="convertDistance()">Convert</button>
+        <div class="result" id="distanceResult"></div>
+        <div class="formula">1 mile = 1609.34 km | 1 km = 0.621371 miles</div>
+    </div>
+</div>
 {% endblock %}
