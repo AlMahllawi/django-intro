@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import HangmanWord, Saying
+from .models import HangmanWord, Saying, Note
+from datetime import date
 import random
 
 def index(request):
@@ -27,5 +28,20 @@ def sayings(request):
     return render(request, 'simple/sayings.html', {
         'pagetitle': 'Sayings',
         'sayings': random_sayings
+    })
+
+
+def notes(request):
+    return render(request, 'simple/notes.html', {
+        'pagetitle': 'Notes',
+        'notes': Note.objects.all()
+    })
+
+def notes_today(request):
+    today_notes = Note.objects.filter(created__date=date.today())
+    return render(request, 'simple/notes.html', {
+        'pagetitle': 'Notes',
+        'notes': today_notes,
+        'today': True
     })
 
