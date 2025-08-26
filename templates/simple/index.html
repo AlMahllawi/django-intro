@@ -4,10 +4,10 @@
 <div class="container">
     <h1>Django Introduction</h1>
     <div class="buttons">
-        <a href="/clock" class="btn">Wall Clock</a>
-        <a href="/unit-convert" class="btn">Unit Converter</a>
-        <a href="/hangman" class="btn">Hangman Game</a>
-        <a href="/sayings" class="btn">Sayings</a>
+        <a href="{% url 'clock' %}" class="btn">Wall Clock</a>
+        <a href="{% url 'unit-convert' %}" class="btn">Unit Converter</a>
+        <a href="{% url 'hangman' %}" class="btn">Hangman Game</a>
+        <a href="{% url 'sayings' %}" class="btn">Sayings</a>
     </div>
 </div>
 {% endblock %}
