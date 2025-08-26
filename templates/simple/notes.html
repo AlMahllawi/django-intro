@@ -9,6 +9,9 @@
 {% block body %}
 {% include 'home-link.html' %}
 <div class="container">
+    {% if not today %}
+    <a href="{% url 'notes-today' %}" class="btn">Today's</a>
+    {% endif %}
     {% if notes|length > 0 %}
     <h1>Notes</h1>
     <div class="notes">
