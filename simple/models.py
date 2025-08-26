@@ -7,9 +7,15 @@ class HangmanWord(models.Model):
     def __str__(self):
         return self.category + ': ' + self.word
 
+    class Meta:
+        ordering = ['category']
+
 class Saying(models.Model):
     content = models.TextField()
     valid = models.BooleanField()
 
     def __str__(self):
         return f"[{'Valid' if self.valid else 'Invalid'}] {self.content}"
+
+    class Meta:
+        ordering = ['valid']
