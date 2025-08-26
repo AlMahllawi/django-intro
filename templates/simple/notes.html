@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'style/home-link.css' %}">
+<link rel="stylesheet" href="{% static 'style/simple/notes.css' %}">
+{% endblock %}
+
+{% block body %}
+{% include 'home-link.html' %}
+<div class="container">
+    {% if notes|length > 0 %}
+    <h1>Notes</h1>
+    <div class="notes">
+        {% for note in notes %}
+        <div class="note">
+            <span class="content">{{ note.content }}</span>
+            <span class="timestamp created">{{ note.created }}</span>
+            <span class="timestamp modified">{{ note.modified }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h1 style="color: tomato;">No notes were found.</h1>
+    {% endif %}
+</div>
+{% endblock %}

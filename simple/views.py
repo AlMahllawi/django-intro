@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import HangmanWord, Saying
+from .models import HangmanWord, Saying, Note
 import random
 
 def index(request):
@@ -27,5 +27,12 @@ def sayings(request):
     return render(request, 'simple/sayings.html', {
         'pagetitle': 'Sayings',
         'sayings': random_sayings
+    })
+
+
+def notes(request):
+    return render(request, 'simple/notes.html', {
+        'pagetitle': 'Notes',
+        'notes': Note.objects.all()
     })
 

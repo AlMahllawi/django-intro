@@ -19,3 +19,15 @@ class Saying(models.Model):
 
     class Meta:
         ordering = ['valid']
+
+class Note(models.Model):
+    content = models.TextField()
+    author = models.CharField(max_length=100, null=True, blank=True)
+    modified = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"[{self.modified}] {self.content}"
+
+    class Meta:
+        ordering = ['created']
