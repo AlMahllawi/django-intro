@@ -11,6 +11,7 @@
 <div class="container">
     {% if not today %}
     <a href="{% url 'notes-today' %}" class="btn">Today's</a>
+    <a href="{% url 'add-note' %}" class="btn">Add</a>
     {% endif %}
     {% if notes|length > 0 %}
     <h1>Notes</h1>
@@ -18,6 +19,7 @@
         {% for note in notes %}
         <div class="note">
             <span class="content">{{ note.content }}</span>
+            <span class="author">{{ note.author }}</span>
             <span class="timestamp created">{{ note.created }}</span>
             <span class="timestamp modified">{{ note.modified }}</span>
         </div>
