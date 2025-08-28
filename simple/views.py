@@ -48,6 +48,6 @@ def notes_today(request):
 
 def add_note(request):
     if request.method == 'POST':
-        Note(content=request.POST.get('content'), author=request.POST.get('author')).save()
+        forms.Note(request.POST).save()
     return render(request, 'simple/add-note.html', { 'pagetitle': 'Add Note', 'form': forms.Note() })
 

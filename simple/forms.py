@@ -1,5 +1,7 @@
-from django import forms
+from .models import Note
+from django.forms import ModelForm
 
-class Note(forms.Form):
-    content = forms.CharField(label="Content", required=True)
-    author = forms.CharField(max_length=100, label="Author")
+class Note(ModelForm):
+    class Meta:
+        model = Note
+        fields = '__all__'
