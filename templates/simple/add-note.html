@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'style/home-link.css' %}">
+{% endblock head %}
+{% block body %}
+{% include "home-link.html" %}
+<h1>Add Note</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock body %}

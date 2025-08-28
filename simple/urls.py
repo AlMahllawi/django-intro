@@ -10,4 +10,5 @@ urlpatterns = [
     path("sayings/", views.sayings, name="sayings"),
     path("notes/", views.notes, name="notes"),
     path("notes/today", views.notes_today, name="notes-today"),
+    path("notes/add", views.add_note, name="add-note"),
 ]

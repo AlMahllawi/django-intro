@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import HangmanWord, Saying, Note
+from simple import forms
 from datetime import date
 import random
 
@@ -44,4 +45,11 @@ def notes_today(request):
         'notes': today_notes,
         'today': True
     })
+
+def add_note(request):
+    if request.method == 'POST':
+        form = forms.Note(request.POST)
+        if form.is_valid():
+            form.save()
+    return render(request, 'simple/add-note.html', { 'pagetitle': 'Add Note', 'form': forms.Note() })
 
